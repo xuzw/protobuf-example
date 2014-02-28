@@ -1,0 +1,29 @@
+package test.protos;	// 对应Java Package、或C# NameSpace
+
+// 测试消息
+message HelloWorldMessage {
+  required int32 id = 1;	// 必填的Id（数字）
+}
+
+// 简单消息
+message SimpleMessage {
+  optional int32 id = 1;	// 选填的Id（数字）
+  optional bool flag = 2;	// 选填的标记（布尔）
+  optional string name = 3;	// 选填的名字（字符串：只能处理 ASCII字符）
+  repeated bytes alias = 4;	// 选填的、可重复的别名（字符串：可包含中文）
+}
+
+// 类型
+enum Type {
+  ADD = 1;		// 新增
+  UPDATE = 2;	// 更新
+  DELETE = 3;	// 删除
+}
+
+// 复杂消息
+message ComplexMessage {
+  optional int32 id = 1;								// 选填的Id（数字）
+  optional Type type = 7;								// 选填的类型（Type枚举）
+  optional HelloWorldMessage helloWorldMessage = 2;		// 选填的、嵌套的测试消息
+  repeated SimpleMessage simpleMessage = 3;				// 选填的、可重复的、嵌套的简单消息
+}

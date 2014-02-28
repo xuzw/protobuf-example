@@ -1,0 +1,63 @@
+
+如何编写proto文件？
+=================
+
+1. 官方文档https://developers.google.com/protocol-buffers/docs/overview
+2. 中文教程http://hi.baidu.com/austincao/item/1663f219d96f3c1fe2f986f4
+
+
+
+prot数据类型
+===========
+
+.proto Type	C++ Type	Java Type	Python Type
+
+double		double		double		float
+float		float		float		float
+int32		int32		int			int
+int64		int64		long		int/long
+uint32		uint32		int			int/long
+uint64		uint64		long		int/long
+sint32		int32		int			int
+sint64		int64		long		int/long
+fixed32		uint32		int			int
+fixed64		uint64		long		int/long
+sfixed32	int32		int			int
+sfixed64	int64		long		int/long
+bool		bool		boolean		boolean
+string		string		String		str/unicode
+bytes		string		ByteString	str
+
+
+
+如何编译proto文件？
+=================
+
+1. 添加protoc.exe、ProtoGen.exe、Google.ProtocolBuffers.dll到path环境变量；
+
+2. 打开命令提示符窗口；
+
+3. 转到mocaworld-gameserver/src/main/protos目录；
+
+4. 编译为java，命令示例：
+	protoc gameserver\network\new_server_message\protos\*.proto --java_out=.
+
+5. 编译为c#，命令示例：
+	protogen gameserver\network\new_server_message\protos\PlayerTitleProtos.proto
+	google\protobuf\csharp_options.proto google\protobuf\descriptor.proto
+	-ignore_google_protobuf=true
+	-output_directory=csharp_out\new_server_message\protos
+
+
+
+
+网络链接
+=======
+
+1. 帮助文档https://protobuf-csharp-port.googlecode.com/files/protobuf-csharp-port-2.4.1.473-help.chm
+
+2. 二进制发布包https://protobuf-csharp-port.googlecode.com/files/protobuf-csharp-port-2.4.1.473-release-binaries.zip
+
+3. protobuf-csharp-port项目主页https://code.google.com/p/protobuf-csharp-port/
+
+
